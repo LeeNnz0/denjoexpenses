@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Expense Tracker</title>
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlZlaGljbGUgRXhwZW5zZSBUcmFja2VyIiwKICAic2hvcnRfbmFtZSI6ICJWZWhpY2xlVHJhY2tlciIsCiAgImRlc2NyaXB0aW9uIjogIlNpbXBsZSBleHBlbnNlIHRyYWNraW5nIGZvciB5b3VyIHZlaGljbGVzIiwKICAic3RhcnRfdXJsIjogIi8iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNmOWZhZmIiLAogICJ0aGVtZV9jb2xvciI6ICIjMzc0MWZmIiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCM2FXUjBhRDBpTVRJNElpQm9aV2xuYUhROUlqRXlPQ0lpSUhabGNuTnBiMjQ5SWpFdU1TSWdlRzFzYm5NOUltaDBkSEE2THk5M2QzY3Vkek11YjNKbkx6SXdNREF2YzNabklpQjRiV3h1Y3pwNGJHbHVhejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TVRrNU9TOWJiR2x1YXlJK1BHUmxabk0rUEd4cGJtVmhja2R5WVdScFpXNTBJR2xrUFNKbmNtRmtJaUErUEhOMGIzQWdiMlptYzJWMFBTSXdKU0lnYzNSdmNDMWpiMnh2Y2owaUl6TTNNVEZ6WmlJdlBqeHpkRzl3SUc5bVpuTmxkRDBpTVRBd0pTSWdjM1J2Y0MxamIyeHZjajBpSXpNM05ERm1aaUl2UGp3dmJHbHVaV0Z5UjNKaFpHbGxiblErUEM5a1pXWnpQanh5WldOMElIZHBaSFJvUFNJeE1qZ2lJR2hsYVdkb2REMGlNVEk0SWlCbWFXeHNQU0oxY213b0kyZHlZV1FwSWk4K1BISmxZM1FnZUQwaU1UWWlJSGs5SWpFMklpQjNhV1IwYUQwaU9UWWlJR2hsYVdkb2REMGlPVFlpSUhKNFBTSTRJaUJtYVd4c1BTSWpNemMwTVdabUlpOCtQSEpsWTNRZ2VEMGlNVFlpSUhrOUlqTXlJaUIzYVdSMGFEMGlPVFlpSUdobGFXZG9kRDBpTmpRaUlISjRQU0k0SWlCbWFXeHNQU0lqTXpjME1XWm1JaTgrUEhKbFkzUWdlRDBpTVRZaUlIazlJakU0TkNJZ2QybGtkR2c5SWprMklpQm9aV2xuYUhROUlqTXlJaUJ5ZUQwaU9DSWdabWxzYkQwaUl6TTNOREV3WmlJdlBqeDBaWGgwSUhnOUlqUXdJaUI1UFNJMk5DSWdabWxzYkQwaUkzZG1abVptSWlCbWIyNTBMWE5wZW1VOUlqRTBJaUIwWlhoMExXRnVZMmh2Y2owaWJXbGtaR3hsSWo1VWNtRmphMlZ5UEM5MFpYaDBQand2YzNabkNnPT0iLAogICAgICAic2l6ZXMiOiAiMTI4eDEyOCIsCiAgICAgICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiCiAgICB9LAogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjNhV1IwYUQwaU5URXlJaUJvWldsbmFIUTlJalV4TWlJZ2RtVnljMmx2YmowaU1TNHhJaUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSGh0Ykc1ek9uaHNhVzVyUFNKb2RIUndPaTh2ZDNkM0xuY3pMbTl5Wnk4eE9UazVMMmhzYVc1cklqNCtQR1JsWm5NK1BHeHBibVZoY2tkeVlXUnBaVzUwSUdsa1BTSm5jbUZrSWlBK1BITjBiM0FnYjJabWMyVjBQU0l3SlNJZ2MzUnZjQzFqYjJ4dmNqMGlJek0zTkRGbVppSXZQanh6ZEc5d0lHOW1abk5sZEQwaU1UQXdKU0lnYzNSdmNDMWpiMnh2Y2owaUl6TTNOREV3WmlJdlBqd3ZiR2x1WldGeVIzSmhaR2xsYm5RK1BDOWtaV1p6UGp4eVpXTjBJSGRwWkhSb1BTSTFNVElpSUdobGFXZG9kRDBpTlRFeUlpQm1hV3hzUFNKMWNtd29JMmR5WVdRcElpOCtQSEpsWTNRZ2VEMGlOalFpSUhrOUlqWTBJaUIzYVdSMGFEMGlNemcwSWlCb1pXbG5hSFE5SWpNNE5DSWdjbmc5SWpFeUlpQm1hV3hzUFNJak16YzBNV1ptSWk4K1BISmxZM1FnZUQwaU5qUWlJSGs5SWpFeU1DSWdkMmxrZEdnOUlqTTROQ0lnYUdWcFoyaDBQU0l4TmpBaUlISjRQU0l4TWlJZ1ptbHNiRDBpSXpNM05ERm1aaUl2UGp4eVpXTjBJSGc5SWpZMElpQjVQU0l6TkRRaUlIZHBaSFJvUFNJek9EUWlJR2hsYVdkb2REMGlNVEk0SWlCeWVEMGlNVElpSUdacGJHeDBQU0lqTXpjME1XWm1JaTgrUEhSbGVIUWdlRDBpTVRZd0lpQjVQU0l5TkRBaUlHWnBiR3c5SWlOM1ptWm1aaUlnWm05dWRDMXphWHBsUFNJek5pSWdkR1Y0ZEMxaGJtTm9iM0k5SW0xcFpHUnNaU0krVkhKaFkydGxjakF2ZEdWNGRENCtQQzl6ZG1kQ2c9PSIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0KICBdCn0=">
+    <meta name="theme-color" content="#3741ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Vehicle Tracker">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            body { 
+                font-size: 12px; 
+                font-family: Arial, sans-serif;
+                color: black;
+                background: white;
+                margin: 0;
+                padding: 15px;
+            }
+            .print-title { 
+                font-size: 18px; 
+                font-weight: bold; 
+                margin-bottom: 20px;
+                text-align: center;
+                border-bottom: 2px solid black;
+                padding-bottom: 8px;
+            }
+            .print-date {
+                font-size: 12px;
+                text-align: right;
+                margin-bottom: 10px;
+                color: #666;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                margin: 0;
+            }
+            th, td {
+                border: 1px solid black !important;
+                padding: 6px 8px !important;
+                text-align: left;
+                background: white !important;
+                color: black !important;
+                font-size: 11px !important;
+            }
+            th {
+                background: #f0f0f0 !important;
+                font-weight: bold;
+                text-align: center;
+            }
+            .text-right {
+                text-align: right !important;
+            }
+            .text-center {
+                text-align: center !important;
+            }
+            .font-bold {
+                font-weight: bold !important;
+            }
+            /* Hide trips column in print */
+            th:nth-child(3), td:nth-child(3) {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="max-w-5xl mx-auto p-4">
+        <!-- Simple Header -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6 text-center">
+            <h1 class="text-2xl font-bold text-gray-800">Vehicle Expense Tracker</h1>
+            <p class="text-gray-600 mt-2">Simple expense tracking for your vehicles</p>
+            
+            <!-- Install App Button -->
+            <div id="installPrompt" class="mt-4 hidden">
+                <button id="installButton" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium shadow-md transition-colors">
+                    📱 Install App sa Desktop
+                </button>
+                <p class="text-sm text-gray-500 mt-2">I-install para gawing desktop app!</p>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 no-print">
+            <div class="bg-white rounded-lg shadow-sm p-4 text-center">
+                <div class="text-2xl font-bold text-blue-600" id="totalExpenses">₱0.00</div>
+                <div class="text-sm text-gray-600">Total Expenses</div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm p-4 text-center">
+                <div class="text-2xl font-bold text-green-600" id="totalTrips">0</div>
+                <div class="text-sm text-gray-600">Total Trips</div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm p-4 text-center">
+                <div class="text-2xl font-bold text-purple-600" id="totalTrucks">0</div>
+                <div class="text-sm text-gray-600">Active Trucks</div>
+            </div>
+        </div>
+
+        <!-- Add New Record -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6 no-print">
+            <h2 class="text-lg font-semibold text-gray-800 mb-4">Add New Record</h2>
+            
+            <!-- Tab Buttons -->
+            <div class="flex mb-4 bg-gray-100 rounded-lg p-1">
+                <button id="expenseTab" class="flex-1 py-2 px-4 rounded-md bg-blue-500 text-white font-medium transition-colors">
+                    Add Expense
+                </button>
+                <button id="tripTab" class="flex-1 py-2 px-4 rounded-md text-gray-600 font-medium transition-colors hover:text-gray-800">
+                    Add Trip
+                </button>
+            </div>
+
+            <!-- Expense Form -->
+            <form id="expenseForm" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="relative">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Plate Number</label>
+                        <input 
+                            type="text" 
+                            id="plateNumber" 
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                            placeholder="Enter plate number..."
+                            autocomplete="off"
+                            required
+                        >
+                        <div id="plateDropdown" class="absolute z-10 w-full bg-white border border-gray-300 rounded-md shadow-lg mt-1 max-h-48 overflow-y-auto hidden">
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NDM 3414">NDM 3414</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NBA 1570">NBA 1570</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NBA 1573">NBA 1573</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NFZ 2658">NFZ 2658</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NFZ 2650">NFZ 2650</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="AAV 3315">AAV 3315</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NDH 2826">NDH 2826</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NBA 1561">NBA 1561</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NGB 1550">NGB 1550</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NKF 1814">NKF 1814</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NKF 1653">NKF 1653</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NKF 1663">NKF 1663</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NBA 1581">NBA 1581</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NAX 5523">NAX 5523</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="RMJ 498">RMJ 498</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NAZ 5466">NAZ 5466</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NKR 4609">NKR 4609</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NES 3903">NES 3903</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NKR 5129">NKR 5129</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NKR 5130">NKR 5130</div>
+                            <div class="plate-option px-3 py-2 hover:bg-blue-50 cursor-pointer" data-value="NID 4886">NID 4886</div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                        <input type="date" id="expenseDate" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Diesel Amount (₱)</label>
+                        <input type="number" id="diesel" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="0.00">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Vulcanize Amount (₱)</label>
+                        <input type="number" id="vulcanize" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="0.00">
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-md transition duration-200">
+                    Add Expense Record
+                </button>
+            </form>
+
+            <!-- Trip Form (Hidden by default) -->
+            <form id="tripForm" class="space-y-4 hidden">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="relative">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Plate Number</label>
+                        <input 
+                            type="text" 
+                            id="tripPlateNumber" 
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" 
+                            placeholder="Enter plate number..."
+                            autocomplete="off"
+                            required
+                        >
+                        <div id="tripPlateDropdown" class="absolute z-10 w-full bg-white border border-gray-300 rounded-md shadow-lg mt-1 max-h-48 overflow-y-auto hidden">
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NDM 3414">NDM 3414</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NBA 1570">NBA 1570</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NBA 1573">NBA 1573</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NFZ 2658">NFZ 2658</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NFZ 2650">NFZ 2650</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="AAV 3315">AAV 3315</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NDH 2826">NDH 2826</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NBA 1561">NBA 1561</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NGB 1550">NGB 1550</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NKF 1814">NKF 1814</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NKF 1653">NKF 1653</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NKF 1663">NKF 1663</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NBA 1581">NBA 1581</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NAX 5523">NAX 5523</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="RMJ 498">RMJ 498</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NAZ 5466">NAZ 5466</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NKR 4609">NKR 4609</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NES 3903">NES 3903</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NKR 5129">NKR 5129</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NKR 5130">NKR 5130</div>
+                            <div class="trip-plate-option px-3 py-2 hover:bg-green-50 cursor-pointer" data-value="NID 4886">NID 4886</div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                        <input type="date" id="tripDate" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Number of Trips</label>
+                        <input type="number" id="tripCount" min="1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="1" required>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-md transition duration-200">
+                    Add Trip Record
+                </button>
+            </form>
+        </div>
+
+        <!-- Simple Action Buttons -->
+        <div class="flex flex-wrap gap-3 mb-6 no-print">
+            <button id="viewAll" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md font-medium">
+                View All Records
+            </button>
+            <button id="viewByTruck" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium">
+                View by Truck
+            </button>
+            <button id="viewDieselDates" class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-md font-medium">
+                🛢️ Diesel & Trip Dates
+            </button>
+            <button id="viewWeekly" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md font-medium">
+                📅 Weekly View
+            </button>
+            <button id="viewMonthly" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md font-medium">
+                📊 Monthly View
+            </button>
+            <button id="printReport" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md font-medium">
+                🖨️ Print Report
+            </button>
+            <button id="resetData" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md font-medium">
+                🗑️ Clear All Data
+            </button>
+        </div>
+
+        <!-- Records Table -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div class="print-date hidden">Report Generated: <span id="printDate"></span></div>
+            <div class="print-title hidden">VEHICLE EXPENSE TRACKER REPORT</div>
+            <div class="p-4 border-b border-gray-200">
+                <h2 id="tableTitle" class="text-lg font-semibold text-gray-800">All Records</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Truck</th>
+                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Date</th>
+                            <th class="px-4 py-3 text-center text-sm font-medium text-gray-700">Trips</th>
+                            <th class="px-4 py-3 text-right text-sm font-medium text-gray-700">Diesel</th>
+                            <th class="px-4 py-3 text-right text-sm font-medium text-gray-700">Vulcanize</th>
+                            <th class="px-4 py-3 text-right text-sm font-medium text-gray-700">Total</th>
+                            <th class="px-4 py-3 text-center text-sm font-medium text-gray-700 no-print">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recordsTableBody">
+                        <tr>
+                            <td colspan="7" class="px-4 py-8 text-center text-gray-500">No records yet. Add your first record above!</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let expenses = JSON.parse(localStorage.getItem('vehicleExpenses')) || [];
+        let trips = JSON.parse(localStorage.getItem('vehicleTrips')) || [];
+        let currentView = 'all';
+        let currentTruck = '';
+
+        // Set today's date as default
+        document.getElementById('expenseDate').valueAsDate = new Date();
+        document.getElementById('tripDate').valueAsDate = new Date();
+
+        // Tab switching
+        document.getElementById('expenseTab').addEventListener('click', () => {
+            document.getElementById('expenseTab').className = 'flex-1 py-2 px-4 rounded-md bg-blue-500 text-white font-medium transition-colors';
+            document.getElementById('tripTab').className = 'flex-1 py-2 px-4 rounded-md text-gray-600 font-medium transition-colors hover:text-gray-800';
+            document.getElementById('expenseForm').classList.remove('hidden');
+            document.getElementById('tripForm').classList.add('hidden');
+        });
+
+        document.getElementById('tripTab').addEventListener('click', () => {
+            document.getElementById('tripTab').className = 'flex-1 py-2 px-4 rounded-md bg-green-500 text-white font-medium transition-colors';
+            document.getElementById('expenseTab').className = 'flex-1 py-2 px-4 rounded-md text-gray-600 font-medium transition-colors hover:text-gray-800';
+            document.getElementById('tripForm').classList.remove('hidden');
+            document.getElementById('expenseForm').classList.add('hidden');
+        });
+
+        // Dropdown functionality for expense plate number
+        const plateInput = document.getElementById('plateNumber');
+        const plateDropdown = document.getElementById('plateDropdown');
+        const plateOptions = document.querySelectorAll('.plate-option');
+
+        plateInput.addEventListener('focus', () => {
+            plateDropdown.classList.remove('hidden');
+            plateOptions.forEach(option => option.style.display = 'block');
+        });
+
+        plateInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            plateOptions.forEach(option => {
+                const plateNumber = option.dataset.value.toLowerCase();
+                option.style.display = plateNumber.includes(searchTerm) ? 'block' : 'none';
+            });
+            plateDropdown.classList.remove('hidden');
+        });
+
+        plateInput.addEventListener('blur', () => {
+            setTimeout(() => plateDropdown.classList.add('hidden'), 150);
+        });
+
+        plateOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                plateInput.value = option.dataset.value;
+                plateDropdown.classList.add('hidden');
+                moveOptionToTop(option, plateDropdown);
+            });
+        });
+
+        // Dropdown functionality for trip plate number
+        const tripPlateInput = document.getElementById('tripPlateNumber');
+        const tripPlateDropdown = document.getElementById('tripPlateDropdown');
+        const tripPlateOptions = document.querySelectorAll('.trip-plate-option');
+
+        tripPlateInput.addEventListener('focus', () => {
+            tripPlateDropdown.classList.remove('hidden');
+            tripPlateOptions.forEach(option => option.style.display = 'block');
+        });
+
+        tripPlateInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            tripPlateOptions.forEach(option => {
+                const plateNumber = option.dataset.value.toLowerCase();
+                option.style.display = plateNumber.includes(searchTerm) ? 'block' : 'none';
+            });
+            tripPlateDropdown.classList.remove('hidden');
+        });
+
+        tripPlateInput.addEventListener('blur', () => {
+            setTimeout(() => tripPlateDropdown.classList.add('hidden'), 150);
+        });
+
+        tripPlateOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                tripPlateInput.value = option.dataset.value;
+                tripPlateDropdown.classList.add('hidden');
+                moveOptionToTop(option, tripPlateDropdown);
+            });
+        });
+
+        function moveOptionToTop(selectedOption, dropdown) {
+            selectedOption.remove();
+            dropdown.insertBefore(selectedOption, dropdown.firstChild);
+            selectedOption.classList.add('bg-blue-100', 'border-l-4', 'border-blue-500');
+            setTimeout(() => {
+                selectedOption.classList.remove('bg-blue-100', 'border-l-4', 'border-blue-500');
+            }, 2000);
+        }
+
+        // Add expense
+        document.getElementById('expenseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const plateNumber = document.getElementById('plateNumber').value;
+            const date = document.getElementById('expenseDate').value;
+            const diesel = parseFloat(document.getElementById('diesel').value) || 0;
+            const vulcanize = parseFloat(document.getElementById('vulcanize').value) || 0;
+            const total = diesel + vulcanize;
+
+            if (total === 0) {
+                alert('Please enter at least one expense amount.');
+                return;
+            }
+
+            const expense = {
+                id: Date.now(),
+                plateNumber,
+                date,
+                diesel,
+                vulcanize,
+                total
+            };
+
+            expenses.push(expense);
+            localStorage.setItem('vehicleExpenses', JSON.stringify(expenses));
+            
+            // Reset form
+            document.getElementById('expenseForm').reset();
+            document.getElementById('expenseDate').valueAsDate = new Date();
+            
+            updateDisplay();
+            alert('Expense record added successfully!');
+        });
+
+        // Add trip
+        document.getElementById('tripForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const plateNumber = document.getElementById('tripPlateNumber').value;
+            const date = document.getElementById('tripDate').value;
+            const tripCount = parseInt(document.getElementById('tripCount').value) || 0;
+
+            const trip = {
+                id: Date.now(),
+                plateNumber,
+                date,
+                tripCount
+            };
+
+            trips.push(trip);
+            localStorage.setItem('vehicleTrips', JSON.stringify(trips));
+            
+            // Reset form
+            document.getElementById('tripForm').reset();
+            document.getElementById('tripDate').valueAsDate = new Date();
+            
+            updateDisplay();
+            alert('Trip record added successfully!');
+        });
+
+        // View controls
+        document.getElementById('viewAll').addEventListener('click', () => {
+            currentView = 'all';
+            updateDisplay();
+        });
+
+        document.getElementById('viewByTruck').addEventListener('click', () => {
+            currentView = 'truck';
+            updateDisplay();
+        });
+
+        document.getElementById('viewDieselDates').addEventListener('click', () => {
+            currentView = 'dieselDates';
+            updateDisplay();
+        });
+
+        document.getElementById('viewWeekly').addEventListener('click', () => {
+            currentView = 'weekly';
+            updateDisplay();
+        });
+
+        document.getElementById('viewMonthly').addEventListener('click', () => {
+            currentView = 'monthly';
+            updateDisplay();
+        });
+
+        document.getElementById('printReport').addEventListener('click', () => {
+            const printTitle = document.querySelector('.print-title');
+            const printDate = document.querySelector('.print-date');
+            const printDateSpan = document.getElementById('printDate');
+            
+            if (printTitle) printTitle.classList.remove('hidden');
+            if (printDate) {
+                printDate.classList.remove('hidden');
+                printDateSpan.textContent = new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            }
+            
+            setTimeout(() => {
+                window.print();
+                setTimeout(() => {
+                    if (printTitle) printTitle.classList.add('hidden');
+                    if (printDate) printDate.classList.add('hidden');
+                }, 100);
+            }, 100);
+        });
+
+        document.getElementById('resetData').addEventListener('click', () => {
+            if (confirm('Are you sure you want to delete ALL data? This cannot be undone!')) {
+                expenses = [];
+                trips = [];
+                localStorage.removeItem('vehicleExpenses');
+                localStorage.removeItem('vehicleTrips');
+                currentView = 'all';
+                updateDisplay();
+                alert('All data has been cleared successfully.');
+            }
+        });
+
+        // Edit functions
+        function editExpense(id) {
+            const expense = expenses.find(e => e.id === id);
+            if (!expense) return;
+            
+            // Fill the form with existing data
+            document.getElementById('plateNumber').value = expense.plateNumber;
+            document.getElementById('expenseDate').value = expense.date;
+            document.getElementById('diesel').value = expense.diesel || '';
+            document.getElementById('vulcanize').value = expense.vulcanize || '';
+            
+            // Switch to expense tab
+            document.getElementById('expenseTab').click();
+            
+            // Delete the old record
+            expenses = expenses.filter(e => e.id !== id);
+            localStorage.setItem('vehicleExpenses', JSON.stringify(expenses));
+            updateDisplay();
+            
+            // Scroll to form
+            document.getElementById('expenseForm').scrollIntoView({ behavior: 'smooth' });
+            
+            alert('Record loaded for editing. Make your changes and click "Add Expense Record" to save.');
+        }
+
+        function editTrip(id) {
+            const trip = trips.find(t => t.id === id);
+            if (!trip) return;
+            
+            // Fill the form with existing data
+            document.getElementById('tripPlateNumber').value = trip.plateNumber;
+            document.getElementById('tripDate').value = trip.date;
+            document.getElementById('tripCount').value = trip.tripCount;
+            
+            // Switch to trip tab
+            document.getElementById('tripTab').click();
+            
+            // Delete the old record
+            trips = trips.filter(t => t.id !== id);
+            localStorage.setItem('vehicleTrips', JSON.stringify(trips));
+            updateDisplay();
+            
+            // Scroll to form
+            document.getElementById('tripForm').scrollIntoView({ behavior: 'smooth' });
+            
+            alert('Record loaded for editing. Make your changes and click "Add Trip Record" to save.');
+        }
+
+        // Delete functions
+        function deleteExpense(id) {
+            if (confirm('Delete this expense record?')) {
+                expenses = expenses.filter(expense => expense.id !== id);
+                localStorage.setItem('vehicleExpenses', JSON.stringify(expenses));
+                updateDisplay();
+            }
+        }
+
+        function deleteTrip(id) {
+            if (confirm('Delete this trip record?')) {
+                trips = trips.filter(trip => trip.id !== id);
+                localStorage.setItem('vehicleTrips', JSON.stringify(trips));
+                updateDisplay();
+            }
+        }
+
+        function viewTruckDetails(plateNumber) {
+            currentView = 'truckDetails';
+            currentTruck = plateNumber;
+            updateDisplay();
+        }
+
+        // Update display
+        function updateDisplay() {
+            // Update quick stats
+            const totalExpenses = expenses.reduce((sum, expense) => sum + expense.total, 0);
+            const totalTripsCount = trips.reduce((sum, trip) => sum + trip.tripCount, 0);
+            const uniqueTrucks = [...new Set([...expenses.map(e => e.plateNumber), ...trips.map(t => t.plateNumber)])];
+
+            document.getElementById('totalExpenses').textContent = `₱${totalExpenses.toFixed(2)}`;
+            document.getElementById('totalTrips').textContent = totalTripsCount;
+            document.getElementById('totalTrucks').textContent = uniqueTrucks.length;
+
+            // Update table based on current view
+            if (currentView === 'truck') {
+                displayTruckSummary();
+            } else if (currentView === 'truckDetails') {
+                displayTruckDetails();
+            } else if (currentView === 'dieselDates') {
+                displayDieselDatesView();
+            } else if (currentView === 'weekly') {
+                displayWeeklyView();
+            } else if (currentView === 'monthly') {
+                displayMonthlyView();
+            } else {
+                displayAllRecords();
+            }
+        }
+
+        function displayDieselDatesView() {
+            document.getElementById('tableTitle').textContent = 'Diesel & Trip Dates by Truck';
+            
+            // Group by truck
+            const truckData = {};
+            
+            // Process expenses (diesel dates)
+            expenses.forEach(expense => {
+                if (expense.diesel > 0) { // Only include records with diesel
+                    if (!truckData[expense.plateNumber]) {
+                        truckData[expense.plateNumber] = {
+                            dieselDates: [],
+                            tripDates: [],
+                            totalDiesel: 0,
+                            totalVulcanize: 0,
+                            totalTrips: 0
+                        };
+                    }
+                    truckData[expense.plateNumber].dieselDates.push({
+                        date: expense.date,
+                        amount: expense.diesel,
+                        vulcanize: expense.vulcanize
+                    });
+                    truckData[expense.plateNumber].totalDiesel += expense.diesel;
+                    truckData[expense.plateNumber].totalVulcanize += expense.vulcanize;
+                }
+            });
+            
+            // Process trips
+            trips.forEach(trip => {
+                if (!truckData[trip.plateNumber]) {
+                    truckData[trip.plateNumber] = {
+                        dieselDates: [],
+                        tripDates: [],
+                        totalDiesel: 0,
+                        totalVulcanize: 0,
+                        totalTrips: 0
+                    };
+                }
+                truckData[trip.plateNumber].tripDates.push({
+                    date: trip.date,
+                    count: trip.tripCount
+                });
+                truckData[trip.plateNumber].totalTrips += trip.tripCount;
+            });
+            
+            const tbody = document.getElementById('recordsTableBody');
+            
+            if (Object.keys(truckData).length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="px-4 py-8 text-center text-gray-500">No diesel or trip records yet.</td></tr>';
+                return;
+            }
+            
+            // Sort trucks alphabetically
+            const sortedTrucks = Object.entries(truckData).sort((a, b) => a[0].localeCompare(b[0]));
+            
+            let tableRows = '';
+            let grandTotalDiesel = 0;
+            let grandTotalVulcanize = 0;
+            let grandTotalTrips = 0;
+            
+            sortedTrucks.forEach(([plateNumber, data]) => {
+                // Truck header
+                tableRows += `
+                    <tr class="bg-blue-50 border-2 border-blue-200">
+                        <td colspan="7" class="px-4 py-3 font-bold text-blue-900">
+                            🚛 ${plateNumber} - Complete Activity Record
+                            <span class="text-sm font-normal text-blue-700 ml-2">
+                                (${data.dieselDates.length} diesel entries, ${data.tripDates.length} trip entries)
+                            </span>
+                        </td>
+                    </tr>
+                `;
+                
+                // Diesel dates section
+                if (data.dieselDates.length > 0) {
+                    tableRows += `
+                        <tr class="bg-orange-50">
+                            <td colspan="7" class="px-4 py-2 font-semibold text-orange-800">
+                                🛢️ DIESEL DATES (${data.dieselDates.length} entries - Total: ₱${data.totalDiesel.toFixed(2)})
+                            </td>
+                        </tr>
+                    `;
+                    
+                    // Sort diesel dates (newest first)
+                    const sortedDieselDates = data.dieselDates.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    
+                    sortedDieselDates.forEach(diesel => {
+                        // Find trips on the same date
+                        const tripsOnSameDate = data.tripDates.filter(trip => trip.date === diesel.date);
+                        const tripsCount = tripsOnSameDate.reduce((sum, trip) => sum + trip.count, 0);
+                        
+                        tableRows += `
+                            <tr class="border-t hover:bg-gray-50">
+                                <td class="px-4 py-3 text-gray-700 pl-8">└ ${plateNumber}</td>
+                                <td class="px-4 py-3 text-gray-700 font-medium">${new Date(diesel.date).toLocaleDateString()}</td>
+                                <td class="px-4 py-3 text-center ${tripsCount > 0 ? 'text-green-700 font-semibold' : 'text-gray-400'}">${tripsCount > 0 ? tripsCount : '-'}</td>
+                                <td class="px-4 py-3 text-right font-semibold text-orange-700">₱${diesel.amount.toFixed(2)}</td>
+                                <td class="px-4 py-3 text-right text-gray-700">${diesel.vulcanize > 0 ? '₱' + diesel.vulcanize.toFixed(2) : '-'}</td>
+                                <td class="px-4 py-3 text-right font-semibold text-gray-900">₱${(diesel.amount + diesel.vulcanize).toFixed(2)}</td>
+                                <td class="px-4 py-3 text-center text-xs text-gray-500 no-print">
+                                    ${tripsCount > 0 ? '✅ With trips' : '⚠️ No trips'}
+                                </td>
+                            </tr>
+                        `;
+                    });
+                }
+                
+                // Trip dates section (only dates without diesel)
+                const tripDatesWithoutDiesel = data.tripDates.filter(trip => 
+                    !data.dieselDates.some(diesel => diesel.date === trip.date)
+                );
+                
+                if (tripDatesWithoutDiesel.length > 0) {
+                    const tripsWithoutDieselCount = tripDatesWithoutDiesel.reduce((sum, trip) => sum + trip.count, 0);
+                    tableRows += `
+                        <tr class="bg-green-50">
+                            <td colspan="7" class="px-4 py-2 font-semibold text-green-800">
+                                🚚 TRIP DATES (without diesel) - ${tripDatesWithoutDiesel.length} entries (${tripsWithoutDieselCount} trips)
+                            </td>
+                        </tr>
+                    `;
+                    
+                    // Sort trip dates (newest first)
+                    const sortedTripDates = tripDatesWithoutDiesel.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    
+                    sortedTripDates.forEach(trip => {
+                        tableRows += `
+                            <tr class="border-t hover:bg-gray-50">
+                                <td class="px-4 py-3 text-gray-700 pl-8">└ ${plateNumber}</td>
+                                <td class="px-4 py-3 text-gray-700 font-medium">${new Date(trip.date).toLocaleDateString()}</td>
+                                <td class="px-4 py-3 text-center font-semibold text-green-700">${trip.count}</td>
+                                <td class="px-4 py-3 text-right text-gray-400">-</td>
+                                <td class="px-4 py-3 text-right text-gray-400">-</td>
+                                <td class="px-4 py-3 text-right text-gray-400">-</td>
+                                <td class="px-4 py-3 text-center text-xs text-orange-500 no-print">⚠️ No diesel</td>
+                            </tr>
+                        `;
+                    });
+                }
+                
+                // Truck subtotal
+                const truckTotal = data.totalDiesel + data.totalVulcanize;
+                tableRows += `
+                    <tr class="border-t-2 border-blue-300 bg-blue-100">
+                        <td class="px-4 py-3 font-bold text-blue-900">${plateNumber} TOTAL</td>
+                        <td class="px-4 py-3 text-blue-700">${data.dieselDates.length + tripDatesWithoutDiesel.length} dates</td>
+                        <td class="px-4 py-3 text-center font-bold text-blue-900">${data.totalTrips}</td>
+                        <td class="px-4 py-3 text-right font-bold text-blue-900">₱${data.totalDiesel.toFixed(2)}</td>
+                        <td class="px-4 py-3 text-right font-bold text-blue-900">₱${data.totalVulcanize.toFixed(2)}</td>
+                        <td class="px-4 py-3 text-right font-bold text-blue-900 text-lg">₱${truckTotal.toFixed(2)}</td>
+                        <td class="px-4 py-3 text-center no-print"></td>
+                    </tr>
+                `;
+                
+                grandTotalDiesel += data.totalDiesel;
+                grandTotalVulcanize += data.totalVulcanize;
+                grandTotalTrips += data.totalTrips;
+            });
+            
+            // Grand total row
+            const grandTotal = grandTotalDiesel + grandTotalVulcanize;
+            const totalRow = `
+                <tr class="border-t-4 border-gray-600 bg-gray-200">
+                    <td class="px-4 py-4 font-bold text-gray-900 text-lg">GRAND TOTAL</td>
+                    <td class="px-4 py-4 text-gray-700">${sortedTrucks.length} trucks</td>
+                    <td class="px-4 py-4 text-center font-bold text-gray-900 text-lg">${grandTotalTrips}</td>
+                    <td class="px-4 py-4 text-right font-bold text-gray-900 text-lg">₱${grandTotalDiesel.toFixed(2)}</td>
+                    <td class="px-4 py-4 text-right font-bold text-gray-900 text-lg">₱${grandTotalVulcanize.toFixed(2)}</td>
+                    <td class="px-4 py-4 text-right font-bold text-gray-900 text-xl bg-yellow-100">₱${grandTotal.toFixed(2)}</td>
+                    <td class="px-4 py-4 text-center no-print"></td>
+                </tr>
+            `;
+            
+            tbody.innerHTML = tableRows + totalRow;
+        }
+
+        function displayAllRecords() {
+            document.getElementById('tableTitle').textContent = 'All Records';
+            const tbody = document.getElementById('recordsTableBody');
+            
+            if (expenses.length === 0 && trips.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="px-4 py-8 text-center text-gray-500">No records yet. Add your first record above!</td></tr>';
+                return;
+            }
+
+            // Combine expenses and trips by date and truck
+            const combinedRecords = {};
+            
+            expenses.forEach(expense => {
+                const key = `${expense.plateNumber}-${expense.date}`;
+                if (!combinedRecords[key]) {
+                    combinedRecords[key] = {
+                        plateNumber: expense.plateNumber,
+                        date: expense.date,
+                        diesel: 0,
+                        vulcanize: 0,
+                        total: 0,
+                        trips: 0,
+                        expenseIds: [],
+                        tripIds: []
+                    };
+                }
+                combinedRecords[key].diesel += expense.diesel;
+                combinedRecords[key].vulcanize += expense.vulcanize;
+                combinedRecords[key].total += expense.total;
+                combinedRecords[key].expenseIds.push(expense.id);
+            });
+
+            trips.forEach(trip => {
+                const key = `${trip.plateNumber}-${trip.date}`;
+                if (!combinedRecords[key]) {
+                    combinedRecords[key] = {
+                        plateNumber: trip.plateNumber,
+                        date: trip.date,
+                        diesel: 0,
+                        vulcanize: 0,
+                        total: 0,
+                        trips: 0,
+                        expenseIds: [],
+                        tripIds: []
+                    };
+                }
+                combinedRecords[key].trips += trip.tripCount;
+                combinedRecords[key].tripIds.push(trip.id);
+            });
+
+            // Sort by date (newest first)
+            const sortedRecords = Object.values(combinedRecords).sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            const tableRows = sortedRecords.map(record => `
+                <tr class="border-t hover:bg-gray-50">
+                    <td class="px-4 py-3 font-medium text-gray-900">${record.plateNumber}</td>
+                    <td class="px-4 py-3 text-gray-700">${new Date(record.date).toLocaleDateString()}</td>
+                    <td class="px-4 py-3 text-center text-gray-700">${record.trips || '-'}</td>
+                    <td class="px-4 py-3 text-right text-gray-700">₱${record.diesel.toFixed(2)}</td>
+                    <td class="px-4 py-3 text-right text-gray-700">₱${record.vulcanize.toFixed(2)}</td>
+                    <td class="px-4 py-3 text-right font-semibold text-gray-900">₱${record.total.toFixed(2)}</td>
+                    <td class="px-4 py-3 text-center no-print">
+                        <div class="flex flex-col gap-1">
+                            ${record.expenseIds.map(id => `
+                                <div class="flex gap-1 justify-center">
+                                    <button onclick="editExpense(${id})" class="text-blue-600 hover:text-blue-800 text-xs px-1">✏️ Edit</button>
+                                    <button onclick="deleteExpense(${id})" class="text-red-600 hover:text-red-800 text-xs px-1">🗑️ Del</button>
+                                </div>
+                            `).join('')}
+                            ${record.tripIds.map(id => `
+                                <div class="flex gap-1 justify-center">
+                                    <button onclick="editTrip(${id})" class="text-blue-600 hover:text-blue-800 text-xs px-1">✏️ Edit</button>
+                                    <button onclick="deleteTrip(${id})" class="text-red-600 hover:text-red-800 text-xs px-1">🗑️ Del</button>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+
+            // Add total row
+            const grandTotal = expenses.reduce((sum, expense) => sum + expense.total, 0);
+            const grandDiesel = expenses.reduce((sum, expense) => sum + expense.diesel, 0);
+            const grandVulcanize = expenses.reduce((sum, expense) => sum + expense.vulcanize, 0);
+            const grandTrips = trips.reduce((sum, trip) => sum + trip.tripCount, 0);
+
+            const totalRow = `
+                <tr class="border-t-2 border-gray-400 bg-gray-100 font-bold">
+                    <td class="px-4 py-3 font-bold text-gray-900">TOTAL</td>
+                    <td class="px-4 py-3 text-gray-700">-</td>
+                    <td class="px-4 py-3 text-center text-gray-900">${grandTrips}</td>
+                    <td class="px-4 py-3 text-right text-gray-900">₱${grandDiesel.toFixed(2)}</td>
+                    <td class="px-4 py-3 text-right text-gray-900">₱${grandVulcanize.toFixed(2)}</td>
+                    <td class="px-4 py-3 text-right font-bold text-gray-900 text-lg">₱${grandTotal.toFixed(2)}</td>
+                    <td class="px-4 py-3 text-center no-print"></td>
+                </tr>
+            `;
+
+            tbody.innerHTML = tableRows + totalRow;
+        }
+
+        function displayTruckSummary() {
+            document.getElementById('tableTitle').textContent = 'Summary by Truck';
+            
+            // Group by truck
+            const truckSummary = {};
+            expenses.forEach(expense => {
+                if (!truckSummary[expense.plateNumber]) {
+                    truckSummary[expense.plateNumber] = {
+                        diesel: 0,
+                        vulcanize: 0,
+                        total: 0,
+                        trips: 0
+                    };
+                }
+                truckSummary[expense.plateNumber].diesel += expense.diesel;
+                truckSummary[expense.plateNumber].vulcanize += expense.vulcanize;
+                truckSummary[expense.plateNumber].total += expense.total;
+            });
+
+            trips.forEach(trip => {
+                if (!truckSummary[trip.plateNumber]) {
+                    truckSummary[trip.plateNumber] = {
+                        diesel: 0,
+                        vulcanize: 0,
+                        total: 0,
+                        trips: 0
+                    };
+                }
+                truckSummary[trip.plateNumber].trips += trip.tripCount;
+            });
+
+            const tbody = document.getElementById('recordsTableBody');
+            
+            if (Object.keys(truckSummary).length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="px-4 py-8 text-center text-gray-500">No records yet.</td></tr>';
+                return;
+            }
+
+            // Sort by total expenses
+            const sortedTrucks = Object.entries(truckSummary).sort((a, b) => b[1].total - a[1].total);
+
+            const tableRows = sortedTrucks.map(([plateNumber, summary]) => `
+                <tr class="border-t hover:bg-gray-50">
+                    <td class="px-4 py-3 font-medium text-blue-600 hover:text-blue-800 cursor-pointer" onclick="viewTruckDetails('${plateNumber}')">${plateNumber}</td>
+                    <td class="px-4 py-3 text-gray-700">All Time</td>
+                    <td class="px-4 py-3 text-center text-gray-700">${summary.trips}</td>
+                    <td class="px-4 py-3 text-right text-gray-700">₱${summary.diesel.toFixed(2)}</td>
+                    <td class="px-4 py-3 text-right text-gray-700">₱${summary.vulcanize.toFixed(2)}</td>
+                    <td class="px-4 py-3 text-right font-semibold text-gray-900">₱${summary.total.toFixed(2)}</td>
+                    <td class="px-4 py-3 text-center no-print">
+                        <button onclick="viewTruckDetails('${plateNumber}')" class="text-blue-600 hover:text-blue-800 text-xs mr-1">View</button>
+                        <button onclick="printTruckRecord('${plateNumber}')" class="text-green-600 hover:text-green-800 text-xs">🖨️ Print</button>
+                    </td>
+                </tr>
+            `).join('');
+
+            // Add total row
+            const grandTotal = sortedTrucks.reduce((sum, [, summary]) => sum + summary.total, 0);
+            const grandDiesel = sortedTrucks.reduce((sum, [, summary]) => sum + summary.diesel, 0);
+            const grandVulcanize = sortedTrucks.reduce((sum, [, summary]) => sum + summary.vulcanize, 0);
+            const grandTrips = sortedTrucks.reduce((sum, [, summary]) => sum + summary.trips, 0);
+
+            const totalRow = `
+                <tr class="border-t-2 border-gray-400 bg-gray-100 font-bold">
+                    <td class="px-4 py-3 font-bold text-gray-900">TOTAL</td>
+                    <td class="px-4 py-3 text-gray-700">-</td>
+                    <td class="px-4 py-3 text-center text-gray-900">${grandTrips}</td>
+                    <td class="px-4 py-3 text-right text-gray-900">₱${grandDiesel.toFixed(2)}</td>
+                    <td class="px-4 py-3 text-right text-gray-900">₱${grandVulcanize.toFixed(2)}</td>
+                    <td class="px-4 py-3 text-right font-bold text-gray-900 text-lg">₱${grandTotal.toFixed(2)}</td>
+                    <td class="px-4 py-3 text-center no-print"></td>
+                </tr>
+            `;
+
+            tbody.innerHTML = tableRows + totalRow;
+        }
+
+        function displayTruckDetails() {
+            const truckExpenses = expenses.filter(expense => expense.plateNumber === currentTruck);
+            const truckTrips = trips.filter(trip => trip.plateNumber === currentTruck);
+            
+            // Calculate totals for this truck
+            const truckTotalDiesel = truckExpenses.reduce((sum, expense) => sum + expense.diesel, 0);
+            const truckTotalVulcanize = truckExpenses.reduce((sum, expense) => sum + expense.vulcanize, 0);
+            const truckTotalExpenses = truckExpenses.reduce((sum, expense) => sum + expense.total, 0);
+            const truckTotalTrips = truckTrips.reduce((sum, trip) => sum + trip.tripCount, 0);
+            
+            document.getElementById('tableTitle').textContent = `${currentTruck} - Complete Record (${truckExpenses.length} expense entries, ${truckTrips.length} trip entries)`;
+            
+            const tbody = document.getElementById('recordsTableBody');
+            
+            if (truckExpenses.length === 0 && truckTrips.length === 0) {
+                tbody.innerHTML = `
+                    <tr><td colspan="7" class="px-4 py-8 text-center text-gray-500">Walang records pa para sa ${currentTruck}.</td></tr>
+                    <tr class="no-print"><td colspan="7" class="px-4 py-4 text-center">
+                        <button onclick="currentView='truck'; updateDisplay();" class="text-blue-600 hover:text-blue-800 font-medium">← Bumalik sa Truck Summary</button>
+                    </td></tr>
+                `;
+                return;
+            }
+
+            // Create header section for print
+            let headerSection = `
+                <tr class="bg-blue-50 border-2 border-blue-200">
+                    <td colspan="7" class="px-4 py-4 text-center">
+                        <div class="text-xl font-bold text-blue-900">${currentTruck} - COMPLETE EXPENSE RECORD</div>
+                        <div class="text-sm text-blue-700 mt-1">
+                            Total Diesel: ₱${truckTotalDiesel.toFixed(2)} | 
+                            Total Vulcanize: ₱${truckTotalVulcanize.toFixed(2)} | 
+                            Total Trips: ${truckTotalTrips} | 
+                            Grand Total: ₱${truckTotalExpenses.toFixed(2)}
+                        </div>
+                    </td>
+                </tr>
+            `;
+
+            // Show all individual expense records
+            let expenseRows = '';
+            if (truckExpenses.length > 0) {
+                expenseRows += `
+                    <tr class="bg-red-50">
+                        <td colspan="7" class="px-4 py-2 font-semibold text-red-800">EXPENSE RECORDS (${truckExpenses.length} entries)</td>
+                    </tr>
+                `;
+                
+                // Sort expenses by date (newest first)
+                const sortedExpenses = truckExpenses.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                sortedExpenses.forEach(expense => {
+                    // Get trips for this same date
+                    const sameDate = truckTrips.filter(trip => trip.date === expense.date);
+                    const tripsOnDate = sameDate.reduce((sum, trip) => sum + trip.tripCount, 0);
+                    
+                    expenseRows += `
+                        <tr class="border-t hover:bg-gray-50">
+                            <td class="px-4 py-3 text-gray-700 pl-8">└ ${expense.plateNumber}</td>
+                            <td class="px-4 py-3 text-gray-700">${new Date(expense.date).toLocaleDateString()}</td>
+                            <td class="px-4 py-3 text-center text-gray-700">${tripsOnDate > 0 ? tripsOnDate : '-'}</td>
+                            <td class="px-4 py-3 text-right text-gray-700">₱${expense.diesel.toFixed(2)}</td>
+                            <td class="px-4 py-3 text-right text-gray-700">₱${expense.vulcanize.toFixed(2)}</td>
+                            <td class="px-4 py-3 text-right font-semibold text-gray-900">₱${expense.total.toFixed(2)}</td>
+                            <td class="px-4 py-3 text-center no-print">
+                                <div class="flex gap-1 justify-center">
+                                    <button onclick="editExpense(${expense.id})" class="text-blue-600 hover:text-blue-800 text-xs">✏️ Edit</button>
+                                    <button onclick="deleteExpense(${expense.id})" class="text-red-600 hover:text-red-800 text-xs">🗑️ Del</button>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+                });
+            }
+
+            // Show all individual trip records
+            let tripRows = '';
+            if (truckTrips.length > 0) {
+                tripRows += `
+                    <tr class="bg-green-50">
+                        <td colspan="7" class="px-4 py-2 font-semibold text-green-800">TRIP RECORDS (${truckTrips.length} entries, ${truckTotalTrips} total trips)</td>
+                    </tr>
+                `;
+                
+                // Sort trips by date (newest first)
+                const sortedTrips = truckTrips.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                sortedTrips.forEach(trip => {
+                    tripRows += `
+                        <tr class="border-t hover:bg-gray-50">
+                            <td class="px-4 py-3 text-gray-700 pl-8">└ ${trip.plateNumber}</td>
+                            <td class="px-4 py-3 text-gray-700">${new Date(trip.date).toLocaleDateString()}</td>
+                            <td class="px-4 py-3 text-center font-semibold text-green-700">${trip.tripCount}</td>
+                            <td class="px-4 py-3 text-right text-gray-500">-</td>
+                            <td class="px-4 py-3 text-right text-gray-500">-</td>
+                            <td class="px-4 py-3 text-right text-gray-500">-</td>
+                            <td class="px-4 py-3 text-center no-print">
+                                <div class="flex gap-1 justify-center">
+                                    <button onclick="editTrip(${trip.id})" class="text-blue-600 hover:text-blue-800 text-xs">✏️ Edit</button>
+                                    <button onclick="deleteTrip(${trip.id})" class="text-red-600 hover:text-red-800 text-xs">🗑️ Del</button>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+                });
+            }
+
+            // Grand total row
+            const totalRow = `
+                <tr class="border-t-4 border-gray-600 bg-gray-200">
+                    <td class="px-4 py-4 font-bold text-gray-900 text-lg">${currentTruck} GRAND TOTAL</td>
+                    <td class="px-4 py-4 text-gray-700">${truckExpenses.length + truckTrips.length} records</td>
+                    <td class="px-4 py-4 text-center font-bold text-gray-900 text-lg">${truckTotalTrips}</td>
+                    <td class="px-4 py-4 text-right font-bold text-gray-900 text-lg">₱${truckTotalDiesel.toFixed(2)}</td>
+                    <td class="px-4 py-4 text-right font-bold text-gray-900 text-lg">₱${truckTotalVulcanize.toFixed(2)}</td>
+                    <td class="px-4 py-4 text-right font-bold text-gray-900 text-xl bg-yellow-100">₱${truckTotalExpenses.toFixed(2)}</td>
+                    <td class="px-4 py-4 text-center no-print"></td>
+                </tr>
+            `;
+
+            // Back button row
+            const backButtonRow = `
+                <tr class="no-print">
+                    <td colspan="7" class="px-4 py-4 text-center bg-gray-50">
+                        <button onclick="currentView='truck'; updateDisplay();" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md font-medium">← Bumalik sa Truck Summary</button>
+                        <button onclick="printTruckRecord('${currentTruck}')" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md font-medium ml-2">🖨️ Print ${currentTruck} Record</button>
+                    </td>
+                </tr>
+            `;
+
+            tbody.innerHTML = headerSection + expenseRows + tripRows + totalRow + backButtonRow;
+        }
+
+        function displayWeeklyView() {
+            document.getElementById('tableTitle').textContent = 'Weekly Summary - Based on Your Actual Dates';
+            
+            // Group by week and truck based on actual dates entered
+            const weeklyData = {};
+            
+            // Get all unique dates and sort them
+            const allDates = new Set();
+            expenses.forEach(expense => allDates.add(expense.date));
+            trips.forEach(trip => allDates.add(trip.date));
+            const sortedDates = Array.from(allDates).sort();
+            
+            // Group dates into weeks of 7 consecutive dates
+            const weekGroups = [];
+            let currentWeek = [];
+            
+            sortedDates.forEach((date, index) => {
+                currentWeek.push(date);
+                
+                // If we have 7 dates or it's the last date, create a week
+                if (currentWeek.length === 7 || index === sortedDates.length - 1) {
+                    weekGroups.push([...currentWeek]);
+                    currentWeek = [];
+                }
+            });
+            
+            // Helper function to get week key based on actual date groups
+            function getWeekKey(dateStr) {
+                for (let i = 0; i < weekGroups.length; i++) {
+                    if (weekGroups[i].includes(dateStr)) {
+                        return `week-${i + 1}`;
+                    }
+                }
+                return 'week-unknown';
+            }
+            
+            // Helper function to get week range display
+            function getWeekRange(weekKey) {
+                const weekIndex = parseInt(weekKey.split('-')[1]) - 1;
+                if (weekIndex >= 0 && weekIndex < weekGroups.length) {
+                    const weekDates = weekGroups[weekIndex];
+                    const firstDate = new Date(weekDates[0]);
+                    const lastDate = new Date(weekDates[weekDates.length - 1]);
+                    
+                    const formatDate = (date) => {
+                        return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                    };
+                    
+                    const year = firstDate.getFullYear();
+                    return `${formatDate(firstDate)} - ${formatDate(lastDate)}, ${year}`;
+                }
+                return 'Unknown Range';
+            }
+            
+            // Process expenses by week and truck
+            expenses.forEach(expense => {
+                const weekKey = getWeekKey(expense.date);
+                if (!weeklyData[weekKey]) {
+                    weeklyData[weekKey] = { trucks: {}, actualDates: new Set() };
+                }
+                if (!weeklyData[weekKey].trucks[expense.plateNumber]) {
+                    weeklyData[weekKey].trucks[expense.plateNumber] = {
+                        diesel: 0,
+                        vulcanize: 0,
+                        total: 0,
+                        trips: 0,
+                        records: 0
+                    };
+                }
+                weeklyData[weekKey].trucks[expense.plateNumber].diesel += expense.diesel;
+                weeklyData[weekKey].trucks[expense.plateNumber].vulcanize += expense.vulcanize;
+                weeklyData[weekKey].trucks[expense.plateNumber].total += expense.total;
+                weeklyData[weekKey].trucks[expense.plateNumber].records++;
+                weeklyData[weekKey].actualDates.add(expense.date);
+            });
+            
+            // Process trips by week and truck
+            trips.forEach(trip => {
+                const weekKey = getWeekKey(trip.date);
+                if (!weeklyData[weekKey]) {
+                    weeklyData[weekKey] = { trucks: {}, actualDates: new Set() };
+                }
+                if (!weeklyData[weekKey].trucks[trip.plateNumber]) {
+                    weeklyData[weekKey].trucks[trip.plateNumber] = {
+                        diesel: 0,
+                        vulcanize: 0,
+                        total: 0,
+                        trips: 0,
+                        records: 0
+                    };
+                }
+                weeklyData[weekKey].trucks[trip.plateNumber].trips += trip.tripCount;
+                weeklyData[weekKey].trucks[trip.plateNumber].records++;
+                weeklyData[weekKey].actualDates.add(trip.date);
+            });
+            
+            const tbody = document.getElementById('recordsTableBody');
+            
+            if (Object.keys(weeklyData).length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="px-4 py-8 text-center text-gray-500">No records yet.</td></tr>';
+                return;
+            }
+            
+            // Sort by week (newest first)
+            const sortedWeeks = Object.entries(weeklyData).sort((a, b) => b[0].localeCompare(a[0]));
+            
+            let tableRows = '';
+            let grandTotalDiesel = 0;
+            let grandTotalVulcanize = 0;
+            let grandTotalExpenses = 0;
+            let grandTotalTrips = 0;
+            let totalWeeks = 0;
+            
+            sortedWeeks.forEach(([weekKey, weekData]) => {
+                totalWeeks++;
+                
+                // Calculate week totals
+                let weekTotalDiesel = 0;
+                let weekTotalVulcanize = 0;
+                let weekTotalExpenses = 0;
+                let weekTotalTrips = 0;
+                let weekTotalRecords = 0;
+                
+                Object.values(weekData.trucks).forEach(data => {
+                    weekTotalDiesel += data.diesel;
+                    weekTotalVulcanize += data.vulcanize;
+                    weekTotalExpenses += data.total;
+                    weekTotalTrips += data.trips;
+                    weekTotalRecords += data.records;
+                });
+                
+                // Week header with summary
+                tableRows += `
+                    <tr class="bg-purple-50 border-2 border-purple-200">
+                        <td colspan="7" class="px-4 py-4 text-center">
+                            <div class="text-lg font-bold text-purple-900">📅 WEEK ${totalWeeks}: ${getWeekRange(weekKey)}</div>
+                            <div class="text-sm text-purple-700 mt-1">
+                                ${Object.keys(weekData.trucks).length} trucks • ${weekTotalRecords} records • ${weekData.actualDates.size} active days
+                            </div>
+                            <div class="text-sm font-semibold text-purple-800 mt-1">
+                                Week Total: ₱${weekTotalExpenses.toFixed(2)} | Trips: ${weekTotalTrips}
+                            </div>
+                            <div class="text-xs text-purple-600 mt-1">
+                                Avg per day: ₱${(weekTotalExpenses / weekData.actualDates.size).toFixed(2)} | 
+                                Avg per truck: ₱${(weekTotalExpenses / Object.keys(weekData.trucks).length).toFixed(2)}
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                
+                // Sort trucks by total expenses (highest first)
+                const sortedTrucks = Object.entries(weekData.trucks).sort((a, b) => b[1].total - a[1].total);
+                
+                // Individual truck rows
+                sortedTrucks.forEach(([plateNumber, data], index) => {
+                    const rowClass = index % 2 === 0 ? 'bg-white' : 'bg-gray-50';
+                    
+                    // Calculate truck-specific averages
+                    const avgPerDay = data.total / weekData.actualDates.size;
+                    const avgPerTrip = data.trips > 0 ? data.total / data.trips : 0;
+                    
+                    tableRows += `
+                        <tr class="border-t hover:bg-purple-50 ${rowClass}">
+                            <td class="px-4 py-3 font-medium text-gray-900 pl-8">
+                                <span class="text-purple-600">${index + 1}.</span> ${plateNumber}
+                                <div class="text-xs text-gray-500 mt-1">
+                                    Avg per day: ₱${avgPerDay.toFixed(2)}${data.trips > 0 ? ` | Avg per trip: ₱${avgPerTrip.toFixed(2)}` : ''}
+                                </div>
+                            </td>
+                            <td class="px-4 py-3 text-gray-700 text-sm">${data.records} records</td>
+                            <td class="px-4 py-3 text-center font-semibold ${data.trips > 0 ? 'text-green-700' : 'text-gray-400'}">${data.trips || '-'}</td>
+                            <td class="px-4 py-3 text-right ${data.diesel > 0 ? 'text-orange-700 font-semibold' : 'text-gray-400'}">₱${data.diesel.toFixed(2)}</td>
+                            <td class="px-4 py-3 text-right ${data.vulcanize > 0 ? 'text-red-700 font-semibold' : 'text-gray-400'}">₱${data.vulcanize.toFixed(2)}</td>
+                            <td class="px-4 py-3 text-right font-bold text-gray-900">₱${data.total.toFixed(2)}</td>
+                            <td class="px-4 py-3 text-center text-xs text-gray-500 no-print">
+                                ${data.total > 0 ? '💰' : ''}${data.trips > 0 ? '🚛' : ''}
+                            </td>
+                        </tr>
+                    `;
+                });
+                
+                // Week subtotal with better styling
+                tableRows += `
+                    <tr class="border-t-2 border-purple-300 bg-purple-100">
+                        <td class="px-4 py-3 font-bold text-purple-900 text-lg">📊 WEEK ${totalWeeks} TOTAL</td>
+                        <td class="px-4 py-3 text-purple-700 font-semibold">${Object.keys(weekData.trucks).length} trucks</td>
+                        <td class="px-4 py-3 text-center font-bold text-purple-900 text-lg">${weekTotalTrips}</td>
+                        <td class="px-4 py-3 text-right font-bold text-purple-900">₱${weekTotalDiesel.toFixed(2)}</td>
+                        <td class="px-4 py-3 text-right font-bold text-purple-900">₱${weekTotalVulcanize.toFixed(2)}</td>
+                        <td class="px-4 py-3 text-right font-bold text-purple-900 text-lg bg-purple-200">₱${weekTotalExpenses.toFixed(2)}</td>
+                        <td class="px-4 py-3 text-center no-print"></td>
+                    </tr>
+                `;
+                
+                // Add spacing between weeks
+                tableRows += `
+                    <tr class="bg-gray-100">
+                        <td colspan="7" class="px-4 py-1"></td>
+                    </tr>
+                `;
+                
+                grandTotalDiesel += weekTotalDiesel;
+                grandTotalVulcanize += weekTotalVulcanize;
+                grandTotalExpenses += weekTotalExpenses;
+                grandTotalTrips += weekTotalTrips;
+            });
+            
+            // Grand total row with enhanced styling
+            const totalRow = `
+                <tr class="border-t-4 border-gray-800 bg-gray-800 text-white">
+                    <td class="px-4 py-4 font-bold text-xl">🏆 GRAND TOTAL</td>
+                    <td class="px-4 py-4 font-semibold">${totalWeeks} weeks</td>
+                    <td class="px-4 py-4 text-center font-bold text-xl">${grandTotalTrips}</td>
+                    <td class="px-4 py-4 text-right font-bold text-lg">₱${grandTotalDiesel.toFixed(2)}</td>
+                    <td class="px-4 py-4 text-right font-bold text-lg">₱${grandTotalVulcanize.toFixed(2)}</td>
+                    <td class="px-4 py-4 text-right font-bold text-2xl bg-yellow-400 text-gray-900">₱${grandTotalExpenses.toFixed(2)}</td>
+                    <td class="px-4 py-4 text-center no-print"></td>
+                </tr>
+            `;
+            
+            tbody.innerHTML = tableRows + totalRow;
+        }
+
+        function displayMonthlyView() {
+            document.getElementById('tableTitle').textContent = 'Monthly Summary - Organized by Month';
+            
+            // Group by month and truck
+            const monthlyData = {};
+            
+            // Helper function to get month key
+            function getMonthKey(dateStr) {
+                const date = new Date(dateStr);
+                const year = date.getFullYear();
+                const month = (date.getMonth() + 1).toString().padStart(2, '0');
+                return `${year}-${month}`;
+            }
+            
+            // Helper function to get month display name
+            function getMonthName(monthKey) {
+                const [year, month] = monthKey.split('-');
+                const date = new Date(year, month - 1, 1);
+                return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+            }
+            
+            // Process expenses by month and truck
+            expenses.forEach(expense => {
+                const monthKey = getMonthKey(expense.date);
+                if (!monthlyData[monthKey]) {
+                    monthlyData[monthKey] = { trucks: {}, actualDates: new Set() };
+                }
+                if (!monthlyData[monthKey].trucks[expense.plateNumber]) {
+                    monthlyData[monthKey].trucks[expense.plateNumber] = {
+                        diesel: 0,
+                        vulcanize: 0,
+                        total: 0,
+                        trips: 0,
+                        records: 0
+                    };
+                }
+                monthlyData[monthKey].trucks[expense.plateNumber].diesel += expense.diesel;
+                monthlyData[monthKey].trucks[expense.plateNumber].vulcanize += expense.vulcanize;
+                monthlyData[monthKey].trucks[expense.plateNumber].total += expense.total;
+                monthlyData[monthKey].trucks[expense.plateNumber].records++;
+                monthlyData[monthKey].actualDates.add(expense.date);
+            });
+            
+            // Process trips by month and truck
+            trips.forEach(trip => {
+                const monthKey = getMonthKey(trip.date);
+                if (!monthlyData[monthKey]) {
+                    monthlyData[monthKey] = { trucks: {}, actualDates: new Set() };
+                }
+                if (!monthlyData[monthKey].trucks[trip.plateNumber]) {
+                    monthlyData[monthKey].trucks[trip.plateNumber] = {
+                        diesel: 0,
+                        vulcanize: 0,
+                        total: 0,
+                        trips: 0,
+                        records: 0
+                    };
+                }
+                monthlyData[monthKey].trucks[trip.plateNumber].trips += trip.tripCount;
+                monthlyData[monthKey].trucks[trip.plateNumber].records++;
+                monthlyData[monthKey].actualDates.add(trip.date);
+            });
+            
+            const tbody = document.getElementById('recordsTableBody');
+            
+            if (Object.keys(monthlyData).length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="px-4 py-8 text-center text-gray-500">No records yet.</td></tr>';
+                return;
+            }
+            
+            // Sort by month (newest first)
+            const sortedMonths = Object.entries(monthlyData).sort((a, b) => b[0].localeCompare(a[0]));
+            
+            let tableRows = '';
+            let grandTotalDiesel = 0;
+            let grandTotalVulcanize = 0;
+            let grandTotalExpenses = 0;
+            let grandTotalTrips = 0;
+            let totalMonths = 0;
+            
+            sortedMonths.forEach(([monthKey, monthData]) => {
+                totalMonths++;
+                
+                // Calculate month totals
+                let monthTotalDiesel = 0;
+                let monthTotalVulcanize = 0;
+                let monthTotalExpenses = 0;
+                let monthTotalTrips = 0;
+                let monthTotalRecords = 0;
+                
+                Object.values(monthData.trucks).forEach(data => {
+                    monthTotalDiesel += data.diesel;
+                    monthTotalVulcanize += data.vulcanize;
+                    monthTotalExpenses += data.total;
+                    monthTotalTrips += data.trips;
+                    monthTotalRecords += data.records;
+                });
+                
+                // Month header with comprehensive summary
+                tableRows += `
+                    <tr class="bg-teal-50 border-2 border-teal-200">
+                        <td colspan="7" class="px-4 py-4 text-center">
+                            <div class="text-xl font-bold text-teal-900">📊 ${getMonthName(monthKey)}</div>
+                            <div class="text-sm text-teal-700 mt-1">
+                                ${Object.keys(monthData.trucks).length} trucks • ${monthTotalRecords} total records • ${monthData.actualDates.size} active days
+                            </div>
+                            <div class="text-sm font-semibold text-teal-800 mt-1">
+                                Month Total: ₱${monthTotalExpenses.toFixed(2)} | Total Trips: ${monthTotalTrips}
+                            </div>
+                            <div class="text-xs text-teal-600 mt-1">
+                                Avg per day: ₱${(monthTotalExpenses / monthData.actualDates.size).toFixed(2)} | 
+                                Avg per truck: ₱${(monthTotalExpenses / Object.keys(monthData.trucks).length).toFixed(2)}
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                
+                // Sort trucks by total expenses (highest first)
+                const sortedTrucks = Object.entries(monthData.trucks).sort((a, b) => b[1].total - a[1].total);
+                
+                // Individual truck rows with ranking
+                sortedTrucks.forEach(([plateNumber, data], index) => {
+                    const rowClass = index % 2 === 0 ? 'bg-white' : 'bg-gray-50';
+                    const rankEmoji = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '🚛';
+                    
+                    tableRows += `
+                        <tr class="border-t hover:bg-teal-50 ${rowClass}">
+                            <td class="px-4 py-3 font-medium text-gray-900 pl-8">
+                                <span class="text-teal-600">${rankEmoji} ${index + 1}.</span> ${plateNumber}
+                            </td>
+                            <td class="px-4 py-3 text-gray-700 text-sm">
+                                ${data.records} records
+                                <div class="text-xs text-gray-500">
+                                    ${((data.total / monthTotalExpenses) * 100).toFixed(1)}% of month
+                                </div>
+                            </td>
+                            <td class="px-4 py-3 text-center font-semibold ${data.trips > 0 ? 'text-green-700' : 'text-gray-400'}">
+                                ${data.trips || '-'}
+                                ${data.trips > 0 ? `<div class="text-xs text-gray-500">${((data.trips / monthTotalTrips) * 100).toFixed(1)}%</div>` : ''}
+                            </td>
+                            <td class="px-4 py-3 text-right ${data.diesel > 0 ? 'text-orange-700 font-semibold' : 'text-gray-400'}">
+                                ₱${data.diesel.toFixed(2)}
+                                ${data.diesel > 0 ? `<div class="text-xs text-gray-500">${((data.diesel / monthTotalDiesel) * 100).toFixed(1)}%</div>` : ''}
+                            </td>
+                            <td class="px-4 py-3 text-right ${data.vulcanize > 0 ? 'text-red-700 font-semibold' : 'text-gray-400'}">
+                                ₱${data.vulcanize.toFixed(2)}
+                                ${data.vulcanize > 0 ? `<div class="text-xs text-gray-500">${((data.vulcanize / monthTotalVulcanize) * 100).toFixed(1)}%</div>` : ''}
+                            </td>
+                            <td class="px-4 py-3 text-right font-bold text-gray-900">
+                                ₱${data.total.toFixed(2)}
+                                <div class="text-xs text-gray-500 font-normal">
+                                    ₱${(data.total / data.records).toFixed(2)}/record
+                                </div>
+                            </td>
+                            <td class="px-4 py-3 text-center text-xs text-gray-500 no-print">
+                                ${data.total > 1000 ? '💰💰' : data.total > 500 ? '💰' : ''}
+                                ${data.trips > 10 ? '🚛🚛' : data.trips > 0 ? '🚛' : ''}
+                            </td>
+                        </tr>
+                    `;
+                });
+                
+                // Month subtotal with enhanced styling and analytics
+                tableRows += `
+                    <tr class="border-t-2 border-teal-300 bg-teal-100">
+                        <td class="px-4 py-3 font-bold text-teal-900 text-lg">📈 ${getMonthName(monthKey).toUpperCase()} TOTAL</td>
+                        <td class="px-4 py-3 text-teal-700 font-semibold">
+                            ${Object.keys(monthData.trucks).length} trucks
+                            <div class="text-xs text-teal-600">${monthTotalRecords} records</div>
+                        </td>
+                        <td class="px-4 py-3 text-center font-bold text-teal-900 text-lg">
+                            ${monthTotalTrips}
+                            <div class="text-xs text-teal-600">${(monthTotalTrips / Object.keys(monthData.trucks).length).toFixed(1)} avg</div>
+                        </td>
+                        <td class="px-4 py-3 text-right font-bold text-teal-900">
+                            ₱${monthTotalDiesel.toFixed(2)}
+                            <div class="text-xs text-teal-600">${((monthTotalDiesel / monthTotalExpenses) * 100).toFixed(1)}%</div>
+                        </td>
+                        <td class="px-4 py-3 text-right font-bold text-teal-900">
+                            ₱${monthTotalVulcanize.toFixed(2)}
+                            <div class="text-xs text-teal-600">${((monthTotalVulcanize / monthTotalExpenses) * 100).toFixed(1)}%</div>
+                        </td>
+                        <td class="px-4 py-3 text-right font-bold text-teal-900 text-lg bg-teal-200">
+                            ₱${monthTotalExpenses.toFixed(2)}
+                            <div class="text-xs text-teal-600 font-normal">₱${(monthTotalExpenses / monthData.actualDates.size).toFixed(2)}/day</div>
+                        </td>
+                        <td class="px-4 py-3 text-center no-print"></td>
+                    </tr>
+                `;
+                
+                // Add spacing between months
+                tableRows += `
+                    <tr class="bg-gray-100">
+                        <td colspan="7" class="px-4 py-2"></td>
+                    </tr>
+                `;
+                
+                grandTotalDiesel += monthTotalDiesel;
+                grandTotalVulcanize += monthTotalVulcanize;
+                grandTotalExpenses += monthTotalExpenses;
+                grandTotalTrips += monthTotalTrips;
+            });
+            
+            // Grand total row with comprehensive analytics
+            const avgPerMonth = grandTotalExpenses / totalMonths;
+            const totalRow = `
+                <tr class="border-t-4 border-gray-800 bg-gray-800 text-white">
+                    <td class="px-4 py-4 font-bold text-xl">🏆 GRAND TOTAL</td>
+                    <td class="px-4 py-4 font-semibold">
+                        ${totalMonths} months
+                        <div class="text-xs text-gray-300">Period Summary</div>
+                    </td>
+                    <td class="px-4 py-4 text-center font-bold text-xl">
+                        ${grandTotalTrips}
+                        <div class="text-xs text-gray-300">${(grandTotalTrips / totalMonths).toFixed(1)}/month</div>
+                    </td>
+                    <td class="px-4 py-4 text-right font-bold text-lg">
+                        ₱${grandTotalDiesel.toFixed(2)}
+                        <div class="text-xs text-gray-300">${((grandTotalDiesel / grandTotalExpenses) * 100).toFixed(1)}% total</div>
+                    </td>
+                    <td class="px-4 py-4 text-right font-bold text-lg">
+                        ₱${grandTotalVulcanize.toFixed(2)}
+                        <div class="text-xs text-gray-300">${((grandTotalVulcanize / grandTotalExpenses) * 100).toFixed(1)}% total</div>
+                    </td>
+                    <td class="px-4 py-4 text-right font-bold text-2xl bg-yellow-400 text-gray-900">
+                        ₱${grandTotalExpenses.toFixed(2)}
+                        <div class="text-xs text-gray-700 font-normal">₱${avgPerMonth.toFixed(2)}/month avg</div>
+                    </td>
+                    <td class="px-4 py-4 text-center no-print"></td>
+                </tr>
+            `;
+            
+            tbody.innerHTML = tableRows + totalRow;
+        }
+
+        // Print individual truck record
+        function printTruckRecord(plateNumber) {
+            const originalView = currentView;
+            const originalTruck = currentTruck;
+            
+            // Temporarily switch to truck details view
+            currentView = 'truckDetails';
+            currentTruck = plateNumber;
+            updateDisplay();
+            
+            // Add print date and show print elements
+            const printTitle = document.querySelector('.print-title');
+            const printDate = document.querySelector('.print-date');
+            const printDateSpan = document.getElementById('printDate');
+            
+            if (printTitle) {
+                printTitle.textContent = `${plateNumber} - COMPLETE EXPENSE RECORD`;
+                printTitle.classList.remove('hidden');
+            }
+            if (printDate) {
+                printDate.classList.remove('hidden');
+                printDateSpan.textContent = new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            }
+            
+            // Print
+            setTimeout(() => {
+                window.print();
+                
+                // Restore original view after printing
+                setTimeout(() => {
+                    currentView = originalView;
+                    currentTruck = originalTruck;
+                    updateDisplay();
+                    if (printTitle) printTitle.classList.add('hidden');
+                    if (printDate) printDate.classList.add('hidden');
+                }, 100);
+            }, 100);
+        }
+
+        // PWA Installation
+        let deferredPrompt;
+        const installPrompt = document.getElementById('installPrompt');
+        const installButton = document.getElementById('installButton');
+
+        // Check if PWA is installable
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installPrompt.classList.remove('hidden');
+        });
+
+        // Install button click
+        installButton.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                
+                if (outcome === 'accepted') {
+                    console.log('PWA installed successfully');
+                    installPrompt.classList.add('hidden');
+                } else {
+                    console.log('PWA installation declined');
+                }
+                deferredPrompt = null;
+            }
+        });
+
+        // Hide install prompt if already installed
+        window.addEventListener('appinstalled', () => {
+            installPrompt.classList.add('hidden');
+            console.log('PWA was installed');
+        });
+
+        // Service Worker Registration for offline support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                const swCode = `
+                    const CACHE_NAME = 'vehicle-tracker-v1';
+                    const urlsToCache = [
+                        '/',
+                        'https://cdn.tailwindcss.com'
+                    ];
+
+                    self.addEventListener('install', (event) => {
+                        event.waitUntil(
+                            caches.open(CACHE_NAME)
+                                .then((cache) => cache.addAll(urlsToCache))
+                        );
+                    });
+
+                    self.addEventListener('fetch', (event) => {
+                        event.respondWith(
+                            caches.match(event.request)
+                                .then((response) => {
+                                    if (response) {
+                                        return response;
+                                    }
+                                    return fetch(event.request);
+                                })
+                        );
+                    });
+                `;
+                
+                const blob = new Blob([swCode], { type: 'application/javascript' });
+                const swUrl = URL.createObjectURL(blob);
+                
+                navigator.serviceWorker.register(swUrl)
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
+        // Initialize
+        updateDisplay();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96f05fa2a2d54034',t:'MTc1NTE3MzY4NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
